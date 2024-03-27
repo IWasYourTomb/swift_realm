@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct TaskRow: View {
+    var title: String
+    var complited: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack(spacing: 20){
+            Image(systemName: complited ? "checkmark.circle" : "circle")
+            
+            Text(title)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
 #Preview {
-    TaskRow()
+    TaskRow(title: "Test task", complited: false)
 }

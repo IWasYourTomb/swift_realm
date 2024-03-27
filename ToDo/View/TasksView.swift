@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct TasksView: View {
     @ObservedObject var viewModel = TaskViewModel()
     @State var showAddTaks = false
     
@@ -29,8 +29,9 @@ struct ContentView: View {
                             }
                     }
                 }
+                .listRowSeparator(.hidden)
             }
-            
+            Spacer()
             
             FloatingButton()
                 .padding()
@@ -39,7 +40,7 @@ struct ContentView: View {
                 }
         }
         .sheet(isPresented: $showAddTaks){
-            
+            AddTaskView().environmentObject(viewModel)
         }
         .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .bottom)
         .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
@@ -47,5 +48,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    TasksView()
 }
