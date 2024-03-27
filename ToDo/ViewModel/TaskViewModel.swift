@@ -14,6 +14,7 @@ class TaskViewModel: ObservableObject{
  
     init(){
         openRealm()
+        getTask()
     }
     
     func openRealm(){
